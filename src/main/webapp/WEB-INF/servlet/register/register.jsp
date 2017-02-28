@@ -94,12 +94,6 @@
                             <input class="form-control" type="password" name="confirmpassword" maxlength="255">
                         </div>
                         <div class="form-group">
-                            <p>
-                                <fmt:message key="register.do.coppa.msg1" />
-                                <a href="https://www.ftc.gov/tips-advice/business-center/guidance/childrens-online-privacy-protection-rule-not-just-kids-sites"
-                                   target ="_blank">
-                                    <fmt:message key="register.do.coppa.msg2" /></a>.
-                            </p>
                             <label for="birthdate"><fmt:message key="register.do.birth.month" /></label>
                             <select name="bdmonth">
                                 <option value="1">January</option>
@@ -115,9 +109,8 @@
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="birthYear"><fmt:message key="register.do.birth.year" /></label>
+
+                            <label for="birthYear">&nbsp;&nbsp;<fmt:message key="register.do.birth.year" /></label>
                             <select name="bdyear">
                                 <option value ="2015">2015</option>
                                 <option value ="2014">2014</option>
@@ -216,6 +209,15 @@
                                 <option value ="1921">1921</option>
                                 <option value ="1920">1920</option>
                             </select>
+                            <a id="coppa-msg-1" onclick="$('#coppa-msg-1').hide(); $('#coppa-msg-2').removeClass('hidden');"><fmt:message key="register.do.coppa.msg0" /></a>
+                        </div>
+                        <div class="alert alert-info hidden" id="coppa-msg-2">
+                            <p>
+                                <fmt:message key="register.do.coppa.msg1" />
+                                <a href="https://www.ftc.gov/tips-advice/business-center/guidance/childrens-online-privacy-protection-rule-not-just-kids-sites"
+                                   target ="_blank">
+                                    <fmt:message key="register.do.coppa.msg2" /></a>.
+                            </p>
                         </div>
                         <input class="btn btn-default" type="submit" name="submit" value="<fmt:message key="register.do.submit" />">
                     </form>
