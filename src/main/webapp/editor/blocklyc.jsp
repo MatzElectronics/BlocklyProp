@@ -61,6 +61,7 @@
         <script type="text/javascript" src="<url:getCdnUrl url="/lib/bootstrap/core/js/bootstrap.min.js"/>"></script>
         <script type="text/javascript" src="<url:getCdnUrl url="/lib/bootstrap/plugins/bootbox.min.js"/>"></script>
         <script type="text/javascript" src="<url:getCdnUrl url="/ace/ace.js"/>"></script>
+        <script type="text/javascript" src="<url:getCdnUrl url="/lib/jquery.validate.min.js"/>"></script>
 
         <!-- Javascript helpers -->
         <script type="text/javascript" src="<url:getCdnUrl url="/utils.js"/>"></script>
@@ -176,7 +177,7 @@
                                                     <li class="auth-true online-only" data-displayas="list-item" id="save-as-menu-item"><a id="save-project-as"><span class="keyed-lang-string" data-key="editor_save-as"></span></a></li>
                                                     <li class="auth-true online-only divider" data-displayas="list-item"></li>
                                                     <li class="auth-true online-only" data-displayas="list-item"><a href="projectcreate.jsp?lang=PROPC" class="url-prefix"><span class="keyed-lang-string" data-key="menu_newproject_title"></span></a></li>
-                                                    <li class="auth-true offline-only hidden" data-displayas="list-item"><a href="projectcreate.html" class="url-prefix"><span class="keyed-lang-string" data-key="menu_newproject_title"></span></a></li>
+                                                    <li class="auth-true offline-only hidden" data-displayas="list-item"><a id="new-project-menu-item" href="#" class="url-prefix"><span class="keyed-lang-string" data-key="menu_newproject_title"></span></a></li>
                                                     <li class="auth-true online-only" data-displayas="list-item"><a href="my/projects.jsp" class="url-prefix"><span class="keyed-lang-string" data-key="menu_my_projects"></span></a></li>
                                                     <li class="online-only"><a href="projects.jsp" class="url-prefix"><span class="keyed-lang-string" data-key="menu_community_projects"></span></a></li>
                                                     <li class="online-only divider"></li>
@@ -388,7 +389,43 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
-        <div class="modal fade" id="client-download-modal">
+        <div class="modal fade" id="new-project-dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="new-project-dialog-title" class="modal-title keyed-lang-string" data-key="editor_newproject_title">&nbsp;</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="proj">
+                            <div class="form-group">
+                                <label for="new-project-name" class="keyed-lang-string" data-key="project_name"></label>
+                                <input type="text" class="form-control" id="new-project-name" name="new-project-name"/>
+                            </div>
+                            <div id="new-project-board-dropdown" class="form-group">
+                                <label for="board-type" class="keyed-lang-string" data-key="project_create_board_type"></label>
+                                <select class="form-control" id="new-project-board-type" name="new-project-board-type"></select>
+                            </div>
+                            <div id="edit-project-details-static" class="form-group hidden">
+                                <strong class="keyed-lang-string" data-key="project_create_board_type"></strong>:&nbsp;<span id="edit-project-board-type"></span><br>
+                                <strong class="keyed-lang-string" data-key="project_created"></strong>:&nbsp;<span id="edit-project-created-date"></span><br>
+                                <strong class="keyed-lang-string" data-key="project_modified"></strong>:&nbsp;<span id="edit-project-last-modified"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description" class="keyed-lang-string" data-key="project_create_description"></label>
+                                <textarea class="form-control" id="new-project-description" rows="7" name="new-project-description"></textarea>
+                            </div>
+                            <div id="open-modal-sender" class="hidden"></div>
+                        </form>                     
+                    </div>
+                    <div class="modal-footer">
+                        <button id="new-project-cancel" class="btn btn-default keyed-lang-string" data-key="editor_button_cancel"></button>
+                        <button id="new-project-continue" class="btn btn-primary keyed-lang-string" data-key="editor_button_continue"></button>
+                    </div>    
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+	<div class="modal fade" id="client-download-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
